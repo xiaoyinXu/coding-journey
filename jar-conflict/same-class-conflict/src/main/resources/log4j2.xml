@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="LOG.PATH">./jar-conflict/logs</Property>
+        <Property name="LOG.PATTERN">[%p][%d{yyyy-MM-dd HH:mm:ss.SSS}][%t][%c]%m%n</Property>
+    </Properties>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG.PATTERN}" />
+        </Console>
+
+        <!-- info -->
+        <RollingRandomAccessFile  name="info-ref" fileName="${LOG.PATH}/info.log"
+                                  filePattern="${LOG.PATH}/info-%d{yyyy-MM-dd}-%i.log"
+                                  immediateFlush="true">
+            <Filters>
+                <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${LOG.PATTERN}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="100MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="72" />
+        </RollingRandomAccessFile >
+
+        <!-- debug -->
+        <RollingRandomAccessFile  name="debug-ref" fileName="${LOG.PATH}/debug.log"
+                                  filePattern="${LOG.PATH}/debug-%d{yyyy-MM-dd}-%i.log"
+                                  immediateFlush="true">
+            <Filters>
+                <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${LOG.PATTERN}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="100MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="72" />
+        </RollingRandomAccessFile >
+
+        <!-- error -->
+        <RollingRandomAccessFile  name="error-ref" fileName="${LOG.PATH}/error.log"
+                                  filePattern="${LOG.PATH}/error-%d{yyyy-MM-dd}-%i.log"
+                                  immediateFlush="true">
+            <Filters>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${LOG.PATTERN}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="100MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="72" />
+        </RollingRandomAccessFile >
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="info-ref" />
+            <AppenderRef ref="debug-ref" />
+            <AppenderRef ref="error-ref" />
+        </Root>
+<!--        <Logger name="com.xxywebsite" level="warning" additivity="true" />-->
+    </Loggers>
+</Configuration>
