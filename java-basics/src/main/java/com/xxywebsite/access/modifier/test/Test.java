@@ -14,4 +14,20 @@ public class Test extends AccessModifierTest {
         System.out.println(this.k);
         System.out.println(this.z);
     }
+
+    @Override
+    public int getX() {
+        return super.getX();
+    }
+
+    // can not override method which has default access modifer
+//    @Override
+//    public int getY() {
+//        return 1;
+//    }
+
+    @Override
+    public int getZ() {
+        return super.getZ();
+    }
 }

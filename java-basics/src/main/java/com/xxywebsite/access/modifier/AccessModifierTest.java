@@ -12,5 +12,17 @@ public class AccessModifierTest {
     protected int z;
     public int k;
 
+    // "private" on purpose
+    protected int getX() {
+        return x;
+    }
+
+    int getY() {
+        return y;
+    }
+
+    public int getZ() {
+        return z;
+    }
 }
 
