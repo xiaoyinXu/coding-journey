@@ -1,6 +1,7 @@
 package com.xxywebsite.classloader;
 
 import com.xxywebsite.classloader.ChildFirstClassLoader;
+import sun.text.resources.cldr.rw.FormatData_rw;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -18,8 +19,10 @@ public class ClassloaderTest {
         ChildFirstClassLoader childFirstClassLoader = new ChildFirstClassLoader(urls);
         Class<?> clazz = childFirstClassLoader.loadClass("java.lang.String");
         Class<?> clazz2 = childFirstClassLoader.loadClass("com.xxywebsite.classloader.ClassloaderTest");
+        Class<?> clazz3 = childFirstClassLoader.loadClass("sun.text.resources.cldr.rw.FormatData_rw");
 
         System.out.println(clazz.getClassLoader());
         System.out.println(clazz2.getClassLoader());
+        System.out.println(clazz3.getClassLoader());
     }
 }

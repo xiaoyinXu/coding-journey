@@ -27,7 +27,7 @@ public class ChildFirstClassLoader extends ClassLoader {
         try {
             c = internalUrlClassLoader.loadClass(name);
         } catch (ClassNotFoundException e) {
-            c = super.findClass(name);
+            c = super.loadClass(name, resolve);
         }
 
         if (resolve) {
