@@ -13,6 +13,7 @@
         <module>library/library-c1</module>
         <module>library/library-b-shade-c2</module>
         <module>java-basics</module>
+        <module>spring-basics</module>
     </modules>
 
     <properties>
