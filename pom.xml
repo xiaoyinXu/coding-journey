@@ -12,6 +12,7 @@
         <module>jar-conflict</module>
         <module>library/library-c1</module>
         <module>library/library-b-shade-c2</module>
+        <module>java-basics</module>
     </modules>
 
     <properties>
