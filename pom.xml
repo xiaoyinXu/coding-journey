@@ -14,6 +14,7 @@
         <module>library/library-b-shade-c2</module>
         <module>java-basics</module>
         <module>spring-basics</module>
+        <module>classloader-basics</module>
     </modules>
 
     <properties>
