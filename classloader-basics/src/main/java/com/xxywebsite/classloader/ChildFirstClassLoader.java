@@ -7,25 +7,20 @@ import java.net.URLClassLoader;
  * @author xuxiaoyin
  * @since 2022/2/25
  **/
-public class ChildFirstClassLoader extends ClassLoader {
-    private InternalUrlClassLoader internalUrlClassLoader;
-
+public class ChildFirstClassLoader extends URLClassLoader {
     public ChildFirstClassLoader(URL[] urls) {
-        super(Thread.currentThread().getContextClassLoader());
-        this.internalUrlClassLoader = new InternalUrlClassLoader(urls);
+        super(urls, Thread.currentThread().getContextClassLoader());
     }
 
-    private class InternalUrlClassLoader extends URLClassLoader {
-        public InternalUrlClassLoader(URL[] urls) {
-            super(urls, null);
-        }
-    }
 
     @Override
     protected synchronized Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
-        Class<?> c;
+        Class<?> c = findLoadedClass(name);
+        if (c != null) {
+            return c;
+        }
         try {
-            c = internalUrlClassLoader.loadClass(name);
+            c = findClass(name);
         } catch (ClassNotFoundException e) {
             c = super.loadClass(name, resolve);
         }

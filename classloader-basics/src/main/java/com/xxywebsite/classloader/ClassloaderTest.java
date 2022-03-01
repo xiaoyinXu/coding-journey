@@ -19,6 +19,7 @@ public class ClassloaderTest {
         ChildFirstClassLoader childFirstClassLoader = new ChildFirstClassLoader(urls);
         Class<?> clazz = childFirstClassLoader.loadClass("java.lang.String");
         Class<?> clazz2 = childFirstClassLoader.loadClass("com.xxywebsite.classloader.ClassloaderTest");
+        clazz2 = childFirstClassLoader.loadClass("com.xxywebsite.classloader.ClassloaderTest");
         Class<?> clazz3 = childFirstClassLoader.loadClass("sun.text.resources.cldr.rw.FormatData_rw");
 
         System.out.println(clazz.getClassLoader());
