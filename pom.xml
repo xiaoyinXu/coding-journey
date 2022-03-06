@@ -15,6 +15,7 @@
         <module>java-basics</module>
         <module>spring-basics</module>
         <module>classloader-basics</module>
+        <module>swing-basics</module>
     </modules>
 
     <properties>
