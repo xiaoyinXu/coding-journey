@@ -35,7 +35,7 @@ public class AnonymousTest {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 final int i2 = i;
-                final int j2 = i;
+                final int j2 = j;
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
