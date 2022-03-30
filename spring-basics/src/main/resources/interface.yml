@@ -1,0 +1,49 @@
+groups:
+  - groupName: 测试接口组
+    interfaces:
+      - name: 测试接口1
+        mapping: /test/interface1
+        params:
+          - name: orgCode
+            type: string
+            remark: ...
+            allowValues: ...
+          - name: theaterCode
+            type: string
+          - date: date
+            type: string
+          - name: currentPage
+            type: number
+          - name: pageSize
+            type: number
+        response:
+          - name: orgCode
+            type: string
+            example: ...
+          - name: orgName
+            type: string
+          - name: theaterCode
+            type: string
+          - name: theaterName
+            type: string
+          - name: sites
+            type: array
+            length: ${pageSize}
+            elements:
+              - type: object
+                properties:
+                  - name: siteCode
+                    type: string
+                  - name: siteName
+                    type: string
+                  - name: count
+                    type: number
+          - name: meta
+            type: object
+            properties:
+              - name: field1
+                type: string
+              - name: field2
+                type: string
+
+

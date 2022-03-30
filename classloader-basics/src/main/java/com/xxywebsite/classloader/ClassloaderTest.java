@@ -16,6 +16,7 @@ public class ClassloaderTest {
         File jarDir = new File("./classloader-basics/target/original-classloader-basics-1.0-SNAPSHOT.jar");
         URL[] urls = new URL[]{jarDir.toURL()};
 
+
         ChildFirstClassLoader childFirstClassLoader = new ChildFirstClassLoader(urls);
         Class<?> clazz = childFirstClassLoader.loadClass("java.lang.String");
         Class<?> clazz2 = childFirstClassLoader.loadClass("com.xxywebsite.classloader.ClassloaderTest");
