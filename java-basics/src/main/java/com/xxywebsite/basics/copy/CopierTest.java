@@ -11,6 +11,10 @@ import java.util.concurrent.CyclicBarrier;
  **/
 public class CopierTest {
     public static class A {
+        private String name;
+
+        private int age;
+
         public String getName() {
             return name;
         }
@@ -26,14 +30,13 @@ public class CopierTest {
         public void setAge(int age) {
             this.age = age;
         }
+    }
 
+    public static class B {
         private String name;
 
         private int age;
 
-    }
-
-    public static class B {
         public String getName() {
             return name;
         }
@@ -42,18 +45,13 @@ public class CopierTest {
             this.name = name;
         }
 
-        public Integer getAge() {
+        public int getAge() {
             return age;
         }
 
-        public void setAge(Integer age) {
+        public void setAge(int age) {
             this.age = age;
         }
-
-        private String name;
-
-        private Integer age;
-
     }
 
 
