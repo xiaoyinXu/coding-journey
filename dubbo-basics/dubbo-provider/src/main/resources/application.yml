@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: "provider-demo"
+dubbo:
+  scan:
+    base-packages: com.xxywebsite.dubbo.provider.impl
+  protocol:
+    name: dubbo
+    port: 12345
+  registry:
+    address: N/A
