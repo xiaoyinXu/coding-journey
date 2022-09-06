@@ -17,6 +17,7 @@
         <module>classloader-basics</module>
         <module>swing-basics</module>
         <module>flink-basics</module>
+        <module>bytecode-basics</module>
     </modules>
 
     <properties>
