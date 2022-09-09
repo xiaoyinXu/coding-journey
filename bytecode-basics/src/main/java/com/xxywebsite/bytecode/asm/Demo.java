@@ -1,12 +1,18 @@
 package com.xxywebsite.bytecode.asm;
 
 import com.xxywebsite.bytecode.signature.MyClassLoader;
+import lombok.NonNull;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.FieldVisitor;
 
 import java.io.IOException;
+import java.io.Serializable;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 import static org.objectweb.asm.Opcodes.ASM4;
 
@@ -17,12 +23,17 @@ import static org.objectweb.asm.Opcodes.ASM4;
  * @since 2022/9/6
  **/
 public class Demo {
-    public static class A {
+    @NonNull
+    public static class A<T> implements Serializable, Comparable<A> {
         private int a;
         private long b;
         private boolean c;
+        private T t;
 
-
+        @Override
+        public int compareTo(A o) {
+            return 0;
+        }
     }
 
 

@@ -22,7 +22,8 @@ public class AddCloneableInterfaceTest {
         try {
             String name = clazz.getName();
             ClassReader classReader = new ClassReader(name);
-            ClassWriter classWriter = new ClassWriter(classReader, 0);
+            ClassWriter classWriter = new ClassWriter(0);
+//            ClassWriter classWriter = new ClassWriter(classReader, 0);
             classReader.accept(new AddInterfaceAdaptor(classWriter), 0);
             return classWriter.toByteArray();
         } catch (Exception exception) {
@@ -55,6 +56,8 @@ public class AddCloneableInterfaceTest {
         Class<?> clazz = myClassLoader.defineClazz(bytes);
 //
         Object object = clazz.newInstance();
+        System.out.println(object instanceof Cloneable);
+
         Method method = clazz.getDeclaredMethod("clone");
         method.setAccessible(true);
         System.out.println(method.invoke(object));
@@ -66,6 +69,9 @@ public class AddCloneableInterfaceTest {
     }
 
     public static class ABC implements Serializable {
+        public void fn() {
+
+        }
 
         @Override
         protected Object clone() throws CloneNotSupportedException {
